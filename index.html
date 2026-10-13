@@ -1,0 +1,1324 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Touchie Vietnam Boutique | Nến Thơm Sáp Thực Vật & Nghệ Thuật Khứu Giác</title>
+  
+  <!-- Favicon / Meta -->
+  <meta name="description" content="Touchie Vietnam Boutique - Thương hiệu nến thơm thực vật thủ công và tinh dầu tỏa hương cao cấp theo phong cách The Candleholic. 100% sáp cọ và đậu nành tự nhiên, an toàn sức khỏe.">
+
+  <!-- Google Fonts: Cormorant Garamond, Fraunces & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            boutique: {
+              bg: '#FAF7F2',            /* Kem ngà Warm Ivory chuẩn The Candleholic */
+              card: '#FFFFFF',
+              dark: '#1C1917',          /* Đen than sang trọng */
+              espresso: '#3D2B1F',      /* Nâu gỗ hạt dẻ trầm */
+              mocha: '#6B5344',         /* Nâu cà phê mộc */
+              sand: '#F2ECE4',          /* Be cát tinh tế */
+              gold: '#C5A880',          /* Vàng ánh kim cao cấp */
+              terracotta: '#C85A17',    /* Cam đất Warm Orange CTA */
+              terracotta_hover: '#AF4B0E',
+              amber: '#D9822B',         /* Ánh lửa nến & Rating */
+              sage: '#7A8B7B',          /* Xanh xô thơm thảo mộc */
+              lavender: '#8E7C93'       /* Tím hoa lan dịu */
+            }
+          },
+          fontFamily: {
+            serif: ['"Cormorant Garamond"', 'serif'],
+            display: ['"Fraunces"', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif']
+          },
+          boxShadow: {
+            'boutique-card': '0 10px 30px -5px rgba(61, 43, 31, 0.05), 0 2px 6px -1px rgba(61, 43, 31, 0.02)',
+            'boutique-hover': '0 20px 35px -8px rgba(61, 43, 31, 0.12), 0 4px 10px -2px rgba(61, 43, 31, 0.05)',
+            'boutique-drawer': '-10px 0 35px rgba(28, 25, 23, 0.15)'
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      background-color: #FAF7F2;
+      color: #1C1917;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    .font-luxury {
+      font-family: 'Cormorant Garamond', serif;
+    }
+    .font-display {
+      font-family: 'Fraunces', serif;
+    }
+    .nav-link {
+      position: relative;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-size: 0.72rem;
+      font-weight: 500;
+      color: #3D2B1F;
+      transition: color 0.3s ease;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0%;
+      height: 1px;
+      bottom: -4px;
+      left: 0;
+      background-color: #C85A17;
+      transition: width 0.3s ease;
+    }
+    .nav-link:hover {
+      color: #C85A17;
+    }
+    .nav-link:hover::after {
+      width: 100%;
+    }
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #FAF7F2;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #C5A880;
+      border-radius: 3px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #C85A17;
+    }
+  </style>
+</head>
+<body class="selection:bg-boutique-gold selection:text-white antialiased">
+
+  <!-- ==================== 1. TOP ANNOUNCEMENT BAR ==================== -->
+  <aside aria-label="Thông báo ưu đãi" class="bg-boutique-dark text-boutique-bg py-2.5 px-4 text-center text-[10px] sm:text-xs font-light tracking-[0.2em] uppercase border-b border-white/10 flex items-center justify-center gap-3">
+    <span>✦ MIỄN PHÍ VẬN CHUYỂN TOÀN QUỐC CHO ĐƠN TỪ 499.000₫ ✦ TẶNG DIÊM DÀI VINTAGE & THIỆP THẢO MỘC ✦</span>
+  </aside>
+
+  <!-- ==================== 2. BOUTIQUE STICKY HEADER ==================== -->
+  <header class="sticky top-0 z-40 bg-[#FAF7F2]/95 backdrop-blur-md border-b border-boutique-sand transition-all">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
+      
+      <!-- Mobile Hamburger Button -->
+      <div class="flex items-center lg:hidden">
+        <button onclick="toggleMobileNav()" aria-label="Mở menu" class="p-2 -ml-2 text-boutique-espresso hover:text-boutique-terracotta transition-colors">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Left: Navigation Links (Desktop) -->
+      <nav class="hidden lg:flex items-center gap-8">
+        <a href="#collections" class="nav-link">Bộ Sưu Tập</a>
+        <a href="#fragrance-pyramid" class="nav-link">3 Tầng Hương</a>
+        <a href="#scent-matcher" class="nav-link">Chọn Mùi Hương</a>
+        <a href="#giftsets" class="nav-link">Set Quà Tặng</a>
+        <a href="#care-guide" class="nav-link">Cẩm Nang Đốt Nến</a>
+        <a href="#philosophy" class="nav-link">Về Touchie</a>
+      </nav>
+
+      <!-- Center: Brand Logo (Retro Curved Font chuẩn thương hiệu) -->
+      <a href="#" class="text-center group flex items-center justify-center py-1">
+        <img src="src/assets/images/touchie-logo-dark.png" alt="Touchie Vietnam" class="h-10 sm:h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105">
+      </a>
+
+      <!-- Right: Action Icons & Cart -->
+      <div class="flex items-center gap-3 sm:gap-5">
+        <button onclick="scrollToScentMatcher()" class="text-xs uppercase tracking-wider text-boutique-mocha hover:text-boutique-terracotta transition-colors hidden sm:flex items-center gap-1.5">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+          <span class="hidden md:inline">Tìm Mùi Hương</span>
+        </button>
+
+        <button onclick="openDrawer()" aria-label="Mở giỏ hàng" class="relative p-2 text-boutique-dark hover:text-boutique-terracotta transition-colors flex items-center gap-2 bg-boutique-sand/60 hover:bg-boutique-sand px-3 py-2 rounded-full border border-boutique-sand">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/>
+          </svg>
+          <span class="text-[11px] font-medium tracking-wider uppercase hidden sm:inline">Giỏ hàng</span>
+          <span id="cart-count-badge" class="bg-boutique-terracotta text-white text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center">0</span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ==================== MOBILE NAVIGATION DRAWER ==================== -->
+  <div id="mobile-nav-drawer" class="fixed inset-0 z-50 overflow-hidden hidden">
+    <div onclick="toggleMobileNav()" class="absolute inset-0 bg-black/50 backdrop-blur-sm transition-opacity"></div>
+    <div class="fixed inset-y-0 left-0 max-w-xs w-full bg-[#FAF7F2] shadow-2xl p-6 flex flex-col justify-between border-r border-boutique-sand z-10">
+      <div>
+        <div class="flex items-center justify-between pb-6 border-b border-boutique-sand">
+          <a href="#" onclick="toggleMobileNav()">
+            <img src="src/assets/images/touchie-logo-dark.png" alt="Touchie Vietnam" class="h-9 w-auto object-contain">
+          </a>
+          <button onclick="toggleMobileNav()" class="text-boutique-mocha hover:text-boutique-dark text-2xl p-1">&times;</button>
+        </div>
+        <nav class="flex flex-col gap-5 py-6">
+          <a href="#collections" onclick="toggleMobileNav()" class="text-sm uppercase tracking-widest text-boutique-espresso hover:text-boutique-terracotta">✦ Bộ Sưu Tập Nến</a>
+          <a href="#fragrance-pyramid" onclick="toggleMobileNav()" class="text-sm uppercase tracking-widest text-boutique-espresso hover:text-boutique-terracotta">✦ 3 Tầng Hương Độc Bản</a>
+          <a href="#scent-matcher" onclick="toggleMobileNav()" class="text-sm uppercase tracking-widest text-boutique-espresso hover:text-boutique-terracotta">✦ Tìm Hương Theo Tâm Trạng</a>
+          <a href="#giftsets" onclick="toggleMobileNav()" class="text-sm uppercase tracking-widest text-boutique-espresso hover:text-boutique-terracotta">✦ Set Quà Tặng 499k</a>
+          <a href="#care-guide" onclick="toggleMobileNav()" class="text-sm uppercase tracking-widest text-boutique-espresso hover:text-boutique-terracotta">✦ Cẩm Nang Đốt Nến</a>
+          <a href="#philosophy" onclick="toggleMobileNav()" class="text-sm uppercase tracking-widest text-boutique-espresso hover:text-boutique-terracotta">✦ Câu Chuyện Thương Hiệu</a>
+        </nav>
+      </div>
+      <div class="border-t border-boutique-sand pt-6 text-xs text-boutique-mocha space-y-2">
+        <p>Hotline / Zalo: <span class="font-medium text-boutique-dark">0912 345 678</span></p>
+        <p>Email: boutique@touchievietnam.com</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== 3. HERO SECTION (THE CANDLEHOLIC SIGNATURE AESTHETIC) ==================== -->
+  <section class="relative min-h-[80vh] md:min-h-[88vh] flex items-center justify-center overflow-hidden bg-boutique-sand/40 border-b border-boutique-sand">
+    <!-- Texture background -->
+    <div class="absolute inset-0 bg-[radial-gradient(#C5A880_1px,transparent_1px)] [background-size:28px_28px] opacity-20 pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-6 py-16 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
+      
+      <!-- Cột Trái: Text Typography Sang Trọng -->
+      <div class="lg:col-span-7 text-center lg:text-left space-y-6">
+        <div class="inline-flex items-center gap-2 px-3 py-1 bg-boutique-sand rounded-full border border-boutique-sand text-[11px] font-medium tracking-[0.25em] uppercase text-boutique-terracotta">
+          <span class="w-1.5 h-1.5 rounded-full bg-boutique-terracotta animate-pulse"></span>
+          Artisanal Botanical Candles
+        </div>
+
+        <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-luxury font-light text-boutique-dark leading-[1.08]">
+          Nghệ thuật khứu giác & những cái chạm <span class="italic font-normal text-boutique-terracotta">ấm áp</span>.
+        </h1>
+
+        <p class="text-sm md:text-base text-boutique-mocha max-w-xl mx-auto lg:mx-0 font-light leading-relaxed">
+          Được đổ tay thủ công từ 100% sáp cọ và sáp đậu nành thiên nhiên. Sự hòa quyện tinh tế giữa tinh dầu cao cấp nhập khẩu và thảo mộc thuần Việt — đưa không gian sống của bạn chạm tới sự thư thái tuyệt đối.
+        </p>
+
+        <!-- CTA Action Buttons -->
+        <div class="pt-4 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+          <a href="#collections" class="inline-flex items-center justify-center bg-boutique-dark hover:bg-boutique-terracotta text-white text-xs uppercase tracking-[0.2em] font-medium px-8 py-4 transition-all duration-300 shadow-md hover:shadow-lg rounded-sm">
+            Khám Phá Bộ Sưu Tập
+          </a>
+          <a href="#giftsets" class="inline-flex items-center justify-center border border-boutique-dark/40 hover:border-boutique-dark bg-white/60 hover:bg-white text-boutique-dark text-xs uppercase tracking-[0.2em] font-medium px-8 py-4 transition-all duration-300 rounded-sm">
+            Set Quà Tặng 499k &rarr;
+          </a>
+        </div>
+
+        <!-- Trust Badges -->
+        <div class="pt-8 border-t border-boutique-sand/80 grid grid-cols-3 gap-4 max-w-lg mx-auto lg:mx-0 text-center lg:text-left">
+          <div>
+            <p class="font-luxury text-xl text-boutique-dark">100%</p>
+            <p class="text-[10px] uppercase tracking-wider text-boutique-mocha mt-0.5">Sáp Cọ & Đậu Nành</p>
+          </div>
+          <div>
+            <p class="font-luxury text-xl text-boutique-dark">15 Giờ</p>
+            <p class="text-[10px] uppercase tracking-wider text-boutique-mocha mt-0.5">Thời Gian Cháy Sạch</p>
+          </div>
+          <div>
+            <p class="font-luxury text-xl text-boutique-dark">IFRA Safe</p>
+            <p class="text-[10px] uppercase tracking-wider text-boutique-mocha mt-0.5">Tinh Dầu Chuẩn Quốc Tế</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cột Phải: Hình ảnh Hero Độc Bản -->
+      <div class="lg:col-span-5 flex justify-center relative">
+        <div class="relative max-w-sm sm:max-w-md w-full group">
+          <!-- Ambient Glow -->
+          <div class="absolute -inset-4 bg-gradient-to-r from-boutique-amber/10 via-boutique-gold/10 to-transparent rounded-2xl blur-xl group-hover:opacity-100 transition duration-1000"></div>
+
+          <!-- Khung ảnh sang trọng phong cách Gallery The Candleholic -->
+          <div class="relative bg-white p-4 sm:p-5 shadow-2xl border border-boutique-sand transition-transform duration-500 group-hover:-translate-y-1">
+            <div class="overflow-hidden bg-[#FAF7F2] aspect-square flex items-center justify-center relative">
+              <img src="src/assets/images/warm-orange.png" alt="Touchie Warm Orange Candle" class="w-full h-full object-cover filter contrast-[1.02] transition-transform duration-700 group-hover:scale-105">
+              
+              <!-- Subtle tag -->
+              <span class="absolute top-3 left-3 bg-boutique-dark/90 text-white text-[9px] tracking-widest uppercase px-2.5 py-1">
+                Signature Scent
+              </span>
+            </div>
+
+            <!-- Nhãn chú thích bên dưới ảnh -->
+            <div class="pt-4 flex items-center justify-between">
+              <div>
+                <p class="text-[10px] tracking-widest uppercase text-boutique-mocha">Hũ Thủy Tinh Hổ Phách 100gr</p>
+                <h3 class="font-luxury text-xl font-medium text-boutique-dark">Warm Orange</h3>
+              </div>
+              <div class="text-right">
+                <span class="text-xs font-semibold text-boutique-terracotta">199.000₫</span>
+                <p class="text-[9px] text-boutique-mocha line-through">240.000₫</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Thẻ ghi chú mùi hương ghim nổi -->
+          <div class="absolute -bottom-5 -left-4 sm:-left-6 bg-white/95 backdrop-blur-md p-3.5 border border-boutique-sand shadow-lg max-w-[240px]">
+            <p class="text-[9px] tracking-widest uppercase text-boutique-terracotta font-medium">Tầng hương chính</p>
+            <p class="text-xs font-serif font-medium text-boutique-dark mt-0.5">Cam Chín • Nhựa Thông • Hổ Phách</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== 4. 4 TRỤ CỘT CHẤT LƯỢNG (BRAND PHILOSOPHY & BOTANICAL TRUST) ==================== -->
+  <section class="py-14 bg-white border-b border-boutique-sand">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+        
+        <div class="flex flex-col items-center text-center p-4">
+          <div class="w-12 h-12 rounded-full bg-boutique-sand/60 flex items-center justify-center text-boutique-terracotta mb-3">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+          </div>
+          <h3 class="font-luxury text-lg text-boutique-dark">100% Sáp Thực Vật</h3>
+          <p class="text-xs text-boutique-mocha font-light mt-1">Sáp cọ & sáp đậu nành thiên nhiên. Không paraffin, không tạo khói độc.</p>
+        </div>
+
+        <div class="flex flex-col items-center text-center p-4">
+          <div class="w-12 h-12 rounded-full bg-boutique-sand/60 flex items-center justify-center text-boutique-terracotta mb-3">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
+          </div>
+          <h3 class="font-luxury text-lg text-boutique-dark">Tinh Dầu Chuẩn IFRA</h3>
+          <p class="text-xs text-boutique-mocha font-light mt-1">Đạt chứng nhận an toàn hô hấp, an toàn tuyệt đối cho trẻ nhỏ & thú cưng.</p>
+        </div>
+
+        <div class="flex flex-col items-center text-center p-4">
+          <div class="w-12 h-12 rounded-full bg-boutique-sand/60 flex items-center justify-center text-boutique-terracotta mb-3">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <h3 class="font-luxury text-lg text-boutique-dark">15 Giờ Cháy Tỏa</h3>
+          <p class="text-xs text-boutique-mocha font-light mt-1">Bấc cotton thuần khiết giúp ngọn lửa êm dịu, sáp tan chảy phẳng phiu không lõm hố.</p>
+        </div>
+
+        <div class="flex flex-col items-center text-center p-4">
+          <div class="w-12 h-12 rounded-full bg-boutique-sand/60 flex items-center justify-center text-boutique-terracotta mb-3">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <h3 class="font-luxury text-lg text-boutique-dark">Đổ Tay Tại Việt Nam</h3>
+          <p class="text-xs text-boutique-mocha font-light mt-1">Từng hũ nến được nghệ nhân chăm chút tỉ mỉ, gửi trọn tâm ý và sự ấm áp.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 5. DANH MỤC SẢN PHẨM CHỦ LỰC (THE SIGNATURE COLLECTION) ==================== -->
+  <section id="collections" class="py-20 max-w-7xl mx-auto px-6">
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 border-b border-boutique-sand pb-6">
+      <div>
+        <span class="text-[11px] uppercase tracking-[0.3em] text-boutique-mocha font-medium">Boutique Collection</span>
+        <h2 class="text-3xl md:text-5xl font-luxury font-normal text-boutique-dark mt-1">Nến Thơm Hũ Hổ Phách (100gr)</h2>
+      </div>
+      <p class="text-xs text-boutique-mocha uppercase tracking-widest mt-2 md:mt-0">
+        3 Mùi Hương Độc Bản • Thời gian đốt 15 giờ
+      </p>
+    </div>
+
+    <!-- Product Grid 3 Cột Sang Trọng Chuẩn The Candleholic -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+
+      <!-- PRODUCT 1: WARM ORANGE (Bestseller) -->
+      <div class="group bg-white border border-boutique-sand p-5 flex flex-col justify-between hover:border-boutique-terracotta/40 hover:shadow-boutique-hover transition-all duration-300">
+        <div>
+          <!-- Image Container -->
+          <div class="relative bg-boutique-bg aspect-square overflow-hidden flex items-center justify-center border border-boutique-sand/60">
+            <span class="absolute top-3 left-3 z-10 bg-boutique-dark text-white text-[9px] uppercase tracking-widest px-2.5 py-1 font-medium">
+              Bestseller
+            </span>
+
+            <img src="src/assets/images/warm-orange.png" alt="Warm Orange Candle" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105">
+
+            <!-- Quick View Button Overlay -->
+            <button onclick="openQuickView('warm-orange')" class="absolute bottom-3 left-3 right-3 bg-white/95 backdrop-blur-sm text-boutique-dark text-[11px] uppercase tracking-wider font-medium py-2.5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 border border-boutique-sand hover:bg-boutique-dark hover:text-white">
+              Xem Chi Tiết Mùi Hương
+            </button>
+          </div>
+
+          <!-- Product Details -->
+          <div class="mt-5 text-center">
+            <span class="text-[10px] uppercase tracking-[0.25em] text-boutique-terracotta font-medium">Citrus & Wood</span>
+            <h3 class="font-luxury text-2xl text-boutique-dark mt-1 font-medium">WARM ORANGE</h3>
+            <p class="text-xs text-boutique-mocha mt-1 font-light line-clamp-2">
+              Cam chín mọng nước hòa quyện nhựa thông Siberi và hổ phách ấm nồng.
+            </p>
+            
+            <!-- Fragrance Notes Preview -->
+            <div class="mt-3 py-2 border-y border-boutique-sand/60 text-[11px] text-boutique-espresso/80 flex items-center justify-center gap-2">
+              <span>Hương đầu: <b>Cam Vàng</b></span>
+              <span>•</span>
+              <span>Hương cuối: <b>Hổ Phách</b></span>
+            </div>
+
+            <div class="mt-3 flex items-center justify-center gap-2">
+              <span class="font-medium text-base text-boutique-dark">199.000₫</span>
+              <span class="text-xs text-boutique-mocha line-through">240.000₫</span>
+            </div>
+          </div>
+        </div>
+
+        <button onclick="addToCart('Warm Orange (100gr)', 199000, 'src/assets/images/warm-orange.png')" class="mt-5 w-full bg-boutique-dark hover:bg-boutique-terracotta text-white text-xs uppercase tracking-[0.2em] py-3.5 transition-colors font-medium">
+          Thêm Vào Giỏ Hàng
+        </button>
+      </div>
+
+      <!-- PRODUCT 2: CREAMY BUTTER (Gourmand Sweet) -->
+      <div class="group bg-white border border-boutique-sand p-5 flex flex-col justify-between hover:border-boutique-terracotta/40 hover:shadow-boutique-hover transition-all duration-300">
+        <div>
+          <!-- Image Container -->
+          <div class="relative bg-boutique-bg aspect-square overflow-hidden flex items-center justify-center border border-boutique-sand/60">
+            <span class="absolute top-3 left-3 z-10 bg-boutique-sand text-boutique-dark text-[9px] uppercase tracking-widest px-2.5 py-1 font-medium">
+              Ngọt Dịu
+            </span>
+
+            <img src="src/assets/images/creamy-butter.png" alt="Creamy Butter Candle" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105">
+
+            <!-- Quick View Button Overlay -->
+            <button onclick="openQuickView('creamy-butter')" class="absolute bottom-3 left-3 right-3 bg-white/95 backdrop-blur-sm text-boutique-dark text-[11px] uppercase tracking-wider font-medium py-2.5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 border border-boutique-sand hover:bg-boutique-dark hover:text-white">
+              Xem Chi Tiết Mùi Hương
+            </button>
+          </div>
+
+          <!-- Product Details -->
+          <div class="mt-5 text-center">
+            <span class="text-[10px] uppercase tracking-[0.25em] text-boutique-amber font-medium">Gourmand & Vanilla</span>
+            <h3 class="font-luxury text-2xl text-boutique-dark mt-1 font-medium">CREAMY BUTTER</h3>
+            <p class="text-xs text-boutique-mocha mt-1 font-light line-clamp-2">
+              Bơ ngọt béo ngậy, sữa tươi ấm áp và vani Madagascar dịu êm như tiệm bánh sáng sớm.
+            </p>
+
+            <!-- Fragrance Notes Preview -->
+            <div class="mt-3 py-2 border-y border-boutique-sand/60 text-[11px] text-boutique-espresso/80 flex items-center justify-center gap-2">
+              <span>Hương đầu: <b>Sữa Tươi</b></span>
+              <span>•</span>
+              <span>Hương cuối: <b>Vani Ngọt</b></span>
+            </div>
+
+            <div class="mt-3 flex items-center justify-center gap-2">
+              <span class="font-medium text-base text-boutique-dark">199.000₫</span>
+              <span class="text-xs text-boutique-mocha line-through">240.000₫</span>
+            </div>
+          </div>
+        </div>
+
+        <button onclick="addToCart('Creamy Butter (100gr)', 199000, 'src/assets/images/creamy-butter.png')" class="mt-5 w-full bg-boutique-dark hover:bg-boutique-terracotta text-white text-xs uppercase tracking-[0.2em] py-3.5 transition-colors font-medium">
+          Thêm Vào Giỏ Hàng
+        </button>
+      </div>
+
+      <!-- PRODUCT 3: ORCHID VEIL (Floral & Sandalwood) -->
+      <div class="group bg-white border border-boutique-sand p-5 flex flex-col justify-between hover:border-boutique-terracotta/40 hover:shadow-boutique-hover transition-all duration-300">
+        <div>
+          <!-- Image Container -->
+          <div class="relative bg-boutique-bg aspect-square overflow-hidden flex items-center justify-center border border-boutique-sand/60">
+            <span class="absolute top-3 left-3 z-10 bg-boutique-sand text-boutique-dark text-[9px] uppercase tracking-widest px-2.5 py-1 font-medium">
+              Thư Giãn
+            </span>
+
+            <img src="src/assets/images/orchid-veil.png" alt="Orchid Veil Candle" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105">
+
+            <!-- Quick View Button Overlay -->
+            <button onclick="openQuickView('orchid-veil')" class="absolute bottom-3 left-3 right-3 bg-white/95 backdrop-blur-sm text-boutique-dark text-[11px] uppercase tracking-wider font-medium py-2.5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 border border-boutique-sand hover:bg-boutique-dark hover:text-white">
+              Xem Chi Tiết Mùi Hương
+            </button>
+          </div>
+
+          <!-- Product Details -->
+          <div class="mt-5 text-center">
+            <span class="text-[10px] uppercase tracking-[0.25em] text-boutique-lavender font-medium">Floral & Sandalwood</span>
+            <h3 class="font-luxury text-2xl text-boutique-dark mt-1 font-medium">ORCHID VEIL</h3>
+            <p class="text-xs text-boutique-mocha mt-1 font-light line-clamp-2">
+              Hoa phong lan tím thanh khiết đan xen gỗ đàn hương trầm lắng, thanh lọc tâm trí.
+            </p>
+
+            <!-- Fragrance Notes Preview -->
+            <div class="mt-3 py-2 border-y border-boutique-sand/60 text-[11px] text-boutique-espresso/80 flex items-center justify-center gap-2">
+              <span>Hương đầu: <b>Quả Lê Mọng</b></span>
+              <span>•</span>
+              <span>Hương cuối: <b>Đàn Hương</b></span>
+            </div>
+
+            <div class="mt-3 flex items-center justify-center gap-2">
+              <span class="font-medium text-base text-boutique-dark">199.000₫</span>
+              <span class="text-xs text-boutique-mocha line-through">240.000₫</span>
+            </div>
+          </div>
+        </div>
+
+        <button onclick="addToCart('Orchid Veil (100gr)', 199000, 'src/assets/images/orchid-veil.png')" class="mt-5 w-full bg-boutique-dark hover:bg-boutique-terracotta text-white text-xs uppercase tracking-[0.2em] py-3.5 transition-colors font-medium">
+          Thêm Vào Giỏ Hàng
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== 6. CHI TIẾT 3 TẦNG HƯƠNG (FRAGRANCE PYRAMID - THE CANDLEHOLIC SIGNATURE) ==================== -->
+  <section id="fragrance-pyramid" class="py-20 bg-white border-y border-boutique-sand">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <span class="text-[11px] uppercase tracking-[0.3em] text-boutique-terracotta font-medium">Scent Olfactory Architecture</span>
+        <h2 class="text-3xl md:text-5xl font-luxury font-normal text-boutique-dark mt-2">Tháp 3 Tầng Hương Chi Tiết</h2>
+        <p class="text-xs md:text-sm text-boutique-mocha mt-3 font-light leading-relaxed">
+          Tương tự nghệ thuật nước hoa cao cấp, mỗi hũ nến Touchie giải phóng từng lớp hương tinh tế theo thời gian thắp sáng.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- Pyramid 1: Warm Orange -->
+        <div class="bg-boutique-bg p-8 border border-boutique-sand relative">
+          <div class="flex items-center justify-between pb-4 border-b border-boutique-sand mb-6">
+            <div>
+              <span class="text-[10px] uppercase tracking-widest text-boutique-terracotta font-medium">Signature Scent</span>
+              <h3 class="font-luxury text-2xl text-boutique-dark font-medium">Warm Orange</h3>
+            </div>
+            <span class="text-xs font-serif italic text-boutique-mocha">Ấm áp & Tươi mới</span>
+          </div>
+
+          <div class="space-y-5 text-xs">
+            <div class="bg-white p-3.5 border-l-2 border-boutique-terracotta shadow-sm">
+              <p class="text-[10px] uppercase tracking-wider text-boutique-mocha font-semibold">Tầng Hương Đầu (Top Notes - 15 phút đầu)</p>
+              <p class="text-boutique-dark font-medium mt-1">Cam vàng chín mọng, vỏ quýt sấy khô, tinh dầu bưởi hồng</p>
+              <p class="text-[11px] text-boutique-mocha mt-0.5 font-light">Mang lại cảm giác sảng khoái, xua tan căng thẳng mệt mỏi ngay tức thì.</p>
+            </div>
+
+            <div class="bg-white p-3.5 border-l-2 border-boutique-gold shadow-sm">
+              <p class="text-[10px] uppercase tracking-wider text-boutique-mocha font-semibold">Tầng Hương Giữa (Heart Notes - Sau 30 phút)</p>
+              <p class="text-boutique-dark font-medium mt-1">Nhựa thông Siberi mộc mạc, quế thanh thoang thoảng</p>
+              <p class="text-[11px] text-boutique-mocha mt-0.5 font-light">Tạo chiều sâu ấm cúng, êm dịu lan tỏa khắp căn phòng.</p>
+            </div>
+
+            <div class="bg-white p-3.5 border-l-2 border-boutique-espresso shadow-sm">
+              <p class="text-[10px] uppercase tracking-wider text-boutique-mocha font-semibold">Tầng Hương Cuối (Base Notes - Đọng lại lưu hương)</p>
+              <p class="text-boutique-dark font-medium mt-1">Hổ phách vàng ấm nồng, gỗ tuyết tùng trầm ấm</p>
+              <p class="text-[11px] text-boutique-mocha mt-0.5 font-light">Lưu giữ dư vị bình yên bền bỉ nhiều giờ sau khi tắt nến.</p>
+            </div>
+          </div>
+
+          <div class="mt-6 pt-4 border-t border-boutique-sand flex items-center justify-between text-xs">
+            <span class="text-boutique-mocha">Độ tỏa hương: <b>4/5</b> (20 - 30m²)</span>
+            <button onclick="addToCart('Warm Orange (100gr)', 199000, 'src/assets/images/warm-orange.png')" class="text-boutique-terracotta hover:underline font-medium">Chọn Mùi Này &rarr;</button>
+          </div>
+        </div>
+
+        <!-- Pyramid 2: Creamy Butter -->
+        <div class="bg-boutique-bg p-8 border border-boutique-sand relative">
+          <div class="flex items-center justify-between pb-4 border-b border-boutique-sand mb-6">
+            <div>
+              <span class="text-[10px] uppercase tracking-widest text-boutique-amber font-medium">Gourmand Scent</span>
+              <h3 class="font-luxury text-2xl text-boutique-dark font-medium">Creamy Butter</h3>
+            </div>
+            <span class="text-xs font-serif italic text-boutique-mocha">Ngọt ngào & Vỗ về</span>
+          </div>
+
+          <div class="space-y-5 text-xs">
+            <div class="bg-white p-3.5 border-l-2 border-boutique-amber shadow-sm">
+              <p class="text-[10px] uppercase tracking-wider text-boutique-mocha font-semibold">Tầng Hương Đầu (Top Notes - 15 phút đầu)</p>
+              <p class="text-boutique-dark font-medium mt-1">Sữa tươi ấm, hạnh nhân nướng giòn</p>
+              <p class="text-[11px] text-boutique-mocha mt-0.5 font-light">Cảm giác êm ái, thân thuộc như bước vào một tiệm bánh ngọt châu Âu.</p>
+            </div>
+
+            <div class="bg-white p-3.5 border-l-2 border-boutique-gold shadow-sm">
+              <p class="text-[10px] uppercase tracking-wider text-boutique-mocha font-semibold">Tầng Hương Giữa (Heart Notes - Sau 30 phút)</p>
+              <p class="text-boutique-dark font-medium mt-1">Bơ hạt mỡ béo mịn, vỏ bánh nướng thơm lừng</p>
+              <p class="text-[11px] text-boutique-mocha mt-0.5 font-light">Vỗ về cảm xúc, thích hợp đốt vào những buổi tối mát mẻ hoặc ngày mưa.</p>
+            </div>
+
+            <div class="bg-white p-3.5 border-l-2 border-boutique-espresso shadow-sm">
+              <p class="text-[10px] uppercase tracking-wider text-boutique-mocha font-semibold">Tầng Hương Cuối (Base Notes - Đọng lại lưu hương)</p>
+              <p class="text-boutique-dark font-medium mt-1">Vani hạt Madagascar, đường nâu caramel dịu nhẹ</p>
+              <p class="text-[11px] text-boutique-mocha mt-0.5 font-light">Dư vị ngọt ngào êm ái ru bạn vào giấc ngủ ngon sâu.</p>
+            </div>
+          </div>
+
+          <div class="mt-6 pt-4 border-t border-boutique-sand flex items-center justify-between text-xs">
+            <span class="text-boutique-mocha">Độ tỏa hương: <b>5/5</b> (25 - 35m²)</span>
+            <button onclick="addToCart('Creamy Butter (100gr)', 199000, 'src/assets/images/creamy-butter.png')" class="text-boutique-terracotta hover:underline font-medium">Chọn Mùi Này &rarr;</button>
+          </div>
+        </div>
+
+        <!-- Pyramid 3: Orchid Veil -->
+        <div class="bg-boutique-bg p-8 border border-boutique-sand relative">
+          <div class="flex items-center justify-between pb-4 border-b border-boutique-sand mb-6">
+            <div>
+              <span class="text-[10px] uppercase tracking-widest text-boutique-lavender font-medium">Floral Scent</span>
+              <h3 class="font-luxury text-2xl text-boutique-dark font-medium">Orchid Veil</h3>
+            </div>
+            <span class="text-xs font-serif italic text-boutique-mocha">Thanh khiết & Tĩnh tại</span>
+          </div>
+
+          <div class="space-y-5 text-xs">
+            <div class="bg-white p-3.5 border-l-2 border-boutique-lavender shadow-sm">
+              <p class="text-[10px] uppercase tracking-wider text-boutique-mocha font-semibold">Tầng Hương Đầu (Top Notes - 15 phút đầu)</p>
+              <p class="text-boutique-dark font-medium mt-1">Quả lê xanh mọng nước, sương mai buổi sớm</p>
+              <p class="text-[11px] text-boutique-mocha mt-0.5 font-light">Gợi mở không gian tươi mát, thanh lọc khứu giác nhẹ nhàng.</p>
+            </div>
+
+            <div class="bg-white p-3.5 border-l-2 border-boutique-sage shadow-sm">
+              <p class="text-[10px] uppercase tracking-wider text-boutique-mocha font-semibold">Tầng Hương Giữa (Heart Notes - Sau 30 phút)</p>
+              <p class="text-boutique-dark font-medium mt-1">Hoa phong lan dại, linh lan trắng thuần khiết</p>
+              <p class="text-[11px] text-boutique-mocha mt-0.5 font-light">Mang lại vẻ quý phái sang trọng, giúp đầu óc thư thái và tập trung.</p>
+            </div>
+
+            <div class="bg-white p-3.5 border-l-2 border-boutique-espresso shadow-sm">
+              <p class="text-[10px] uppercase tracking-wider text-boutique-mocha font-semibold">Tầng Hương Cuối (Base Notes - Đọng lại lưu hương)</p>
+              <p class="text-boutique-dark font-medium mt-1">Gỗ đàn hương Mysore cổ thụ, xạ hương sạch</p>
+              <p class="text-[11px] text-boutique-mocha mt-0.5 font-light">Nốt gỗ tĩnh tại, hoàn hảo cho góc thiền định, đọc sách hoặc yoga.</p>
+            </div>
+          </div>
+
+          <div class="mt-6 pt-4 border-t border-boutique-sand flex items-center justify-between text-xs">
+            <span class="text-boutique-mocha">Độ tỏa hương: <b>4/5</b> (20 - 28m²)</span>
+            <button onclick="addToCart('Orchid Veil (100gr)', 199000, 'src/assets/images/orchid-veil.png')" class="text-boutique-terracotta hover:underline font-medium">Chọn Mùi Này &rarr;</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 7. TÌM HƯƠNG THEO TÂM TRẠNG (INTERACTIVE MOOD MATCHER) ==================== -->
+  <section id="scent-matcher" class="py-20 bg-boutique-sand/40 border-b border-boutique-sand">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <span class="text-[11px] uppercase tracking-[0.3em] text-boutique-terracotta font-medium">Interactive Scent Concierge</span>
+      <h2 class="text-3xl md:text-5xl font-luxury font-normal text-boutique-dark mt-2">
+        Hôm Nay Tâm Trạng Bạn Cần Gì Nhất?
+      </h2>
+      <p class="text-xs md:text-sm text-boutique-mocha mt-3 font-light max-w-lg mx-auto">
+        Chọn mong muốn của bạn dưới đây, chuyên viên mùi hương Touchie sẽ gợi ý ngay hũ nến thích hợp nhất cho không gian của bạn.
+      </p>
+
+      <!-- 3 Lựa chọn tâm trạng 1 chạm -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10 text-left">
+        
+        <div onclick="selectMood('warm-orange')" id="mood-card-1" class="mood-card cursor-pointer bg-white p-6 border-2 border-boutique-sand hover:border-boutique-terracotta transition-all shadow-sm">
+          <div class="text-3xl mb-3">🍊</div>
+          <h3 class="font-luxury text-xl text-boutique-dark font-medium">Cần Xua Tan Áp Lực</h3>
+          <p class="text-xs text-boutique-mocha mt-1.5 font-light">Sau một ngày dài mệt mỏi, cần năng lượng ấm áp, sảng khoái và thư giãn tinh thần.</p>
+          <div class="mt-4 pt-3 border-t border-boutique-sand flex items-center justify-between text-xs">
+            <span class="text-boutique-terracotta font-medium">Gợi ý: Warm Orange</span>
+            <span class="text-boutique-dark">&rarr;</span>
+          </div>
+        </div>
+
+        <div onclick="selectMood('creamy-butter')" id="mood-card-2" class="mood-card cursor-pointer bg-white p-6 border-2 border-boutique-sand hover:border-boutique-amber transition-all shadow-sm">
+          <div class="text-3xl mb-3">🧁</div>
+          <h3 class="font-luxury text-xl text-boutique-dark font-medium">Cần Vỗ Về Ngọt Ngào</h3>
+          <p class="text-xs text-boutique-mocha mt-1.5 font-light">Muốn một góc phòng êm ái, hương bánh nướng ngậy thơm ru êm và chuẩn bị giấc ngủ ngon.</p>
+          <div class="mt-4 pt-3 border-t border-boutique-sand flex items-center justify-between text-xs">
+            <span class="text-boutique-amber font-medium">Gợi ý: Creamy Butter</span>
+            <span class="text-boutique-dark">&rarr;</span>
+          </div>
+        </div>
+
+        <div onclick="selectMood('orchid-veil')" id="mood-card-3" class="mood-card cursor-pointer bg-white p-6 border-2 border-boutique-sand hover:border-boutique-lavender transition-all shadow-sm">
+          <div class="text-3xl mb-3">🪻</div>
+          <h3 class="font-luxury text-xl text-boutique-dark font-medium">Cần Tĩnh Lặng & Tập Trung</h3>
+          <p class="text-xs text-boutique-mocha mt-1.5 font-light">Không gian đọc sách, thiền định hoặc làm việc sâu đòi hỏi nốt hương hoa cỏ đan gỗ trầm thanh sạch.</p>
+          <div class="mt-4 pt-3 border-t border-boutique-sand flex items-center justify-between text-xs">
+            <span class="text-boutique-lavender font-medium">Gợi ý: Orchid Veil</span>
+            <span class="text-boutique-dark">&rarr;</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Khối hiển thị kết quả tư vấn sau khi click -->
+      <div id="mood-result-box" class="mt-8 bg-white p-6 border border-boutique-sand shadow-lg hidden max-w-xl mx-auto text-left animate-fadeIn">
+        <div class="flex items-center gap-4">
+          <div class="text-4xl" id="mood-res-icon">🍊</div>
+          <div>
+            <p class="text-[10px] uppercase tracking-widest text-boutique-mocha">Khuyến nghị dành riêng cho bạn:</p>
+            <h4 class="font-luxury text-2xl text-boutique-dark font-medium" id="mood-res-title">Nến Thơm Warm Orange</h4>
+            <p class="text-xs text-boutique-mocha mt-0.5" id="mood-res-desc">Mùi hương cam chín kết hợp gỗ ấm giúp cân bằng cảm xúc và nạp lại năng lượng.</p>
+          </div>
+        </div>
+        <div class="mt-5 pt-4 border-t border-boutique-sand flex items-center justify-between">
+          <span class="font-luxury text-2xl font-bold text-boutique-dark" id="mood-res-price">199.000₫</span>
+          <button id="mood-res-btn" onclick="addSelectedMoodToCart()" class="bg-boutique-dark hover:bg-boutique-terracotta text-white text-xs uppercase tracking-widest px-6 py-3 transition-colors">
+            Thêm Vào Giỏ Hàng Ngay
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== 8. SET QUÀ TẶNG CAO CẤP (THE TRIO GIFTSET SOLUTION) ==================== -->
+  <section id="giftsets" class="py-20 bg-white border-b border-boutique-sand">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Cột Trái: Trực quan Hộp Quà The Signature Trio -->
+        <div class="lg:col-span-6 bg-boutique-bg p-8 sm:p-12 border border-boutique-sand shadow-lg text-center relative group">
+          <div class="absolute top-4 left-4 bg-boutique-terracotta text-white text-[9px] uppercase tracking-widest px-3 py-1 font-medium">
+            Best Gift Idea
+          </div>
+
+          <!-- Mockup Hộp Quà Sang Trọng -->
+          <div class="py-8 flex flex-col items-center">
+            <div class="relative w-full max-w-sm bg-white p-6 shadow-xl border border-boutique-sand">
+              <!-- Nắp hộp có ruy băng -->
+              <div class="w-full h-2 bg-boutique-terracotta mb-4"></div>
+              
+              <div class="grid grid-cols-3 gap-2 py-4 border-y border-boutique-sand/60">
+                <div class="text-center">
+                  <div class="w-16 h-16 mx-auto rounded overflow-hidden border border-boutique-sand shadow-sm mb-1.5">
+                    <img src="src/assets/images/warm-orange.png" alt="Warm Orange" class="w-full h-full object-cover">
+                  </div>
+                  <p class="text-[9px] font-medium text-boutique-dark">Warm Orange</p>
+                </div>
+                <div class="text-center border-x border-boutique-sand/60 px-1">
+                  <div class="w-16 h-16 mx-auto rounded overflow-hidden border border-boutique-sand shadow-sm mb-1.5">
+                    <img src="src/assets/images/creamy-butter.png" alt="Creamy Butter" class="w-full h-full object-cover">
+                  </div>
+                  <p class="text-[9px] font-medium text-boutique-dark">Creamy Butter</p>
+                </div>
+                <div class="text-center">
+                  <div class="w-16 h-16 mx-auto rounded overflow-hidden border border-boutique-sand shadow-sm mb-1.5">
+                    <img src="src/assets/images/orchid-veil.png" alt="Orchid Veil" class="w-full h-full object-cover">
+                  </div>
+                  <p class="text-[9px] font-medium text-boutique-dark">Orchid Veil</p>
+                </div>
+              </div>
+
+              <div class="mt-4 flex items-center justify-between text-[10px] text-boutique-mocha">
+                <span>+ Que diêm dài vintage</span>
+                <span>+ Thiệp thảo mộc</span>
+              </div>
+            </div>
+
+            <h3 class="font-luxury text-3xl text-boutique-dark mt-6 font-medium">The Signature Trio Giftset</h3>
+            <p class="text-xs text-boutique-mocha mt-1 font-light max-w-md">
+              Hộp cứng nắp gập cao cấp, thắt ruy băng thủ công, trao gửi trọn vẹn 3 sắc thái khứu giác tinh tế.
+            </p>
+          </div>
+        </div>
+
+        <!-- Cột Phải: Thông điệp Quà Tặng Doanh Nghiệp & Cá Nhân -->
+        <div class="lg:col-span-6 space-y-6">
+          <span class="text-[11px] uppercase tracking-[0.3em] text-boutique-terracotta font-medium">Boutique Gifting Service</span>
+          <h2 class="text-3xl md:text-5xl font-luxury font-light text-boutique-dark leading-tight">
+            Giải pháp quà tặng tinh tế cho cá nhân & doanh nghiệp.
+          </h2>
+          <p class="text-sm text-boutique-mocha leading-relaxed font-light">
+            Dù là sinh nhật, tân gia, kỷ niệm ngày yêu hay món quà tri ân đối tác kinh doanh, một set nến thơm sáp thực vật tự nhiên luôn là món quà mang theo xúc cảm chân thành và sự chăm chút sâu sắc nhất.
+          </p>
+
+          <!-- Danh sách quyền lợi -->
+          <div class="space-y-3 text-xs text-boutique-dark font-light pt-2">
+            <div class="flex items-center gap-3">
+              <span class="w-1.5 h-1.5 rounded-full bg-boutique-terracotta"></span>
+              <span>Trọn bộ 03 hũ nến hổ phách 100gr (Trải nghiệm trọn vẹn cả 3 mùi hương)</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="w-1.5 h-1.5 rounded-full bg-boutique-terracotta"></span>
+              <span>Hộp quà cứng cao cấp lót rơm mộc, thắt nơ ruy băng vải lụa sang trọng</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="w-1.5 h-1.5 rounded-full bg-boutique-terracotta"></span>
+              <span>Tặng kèm lọ diêm dài vintage chuyên dụng và que đốt nến an toàn</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="w-1.5 h-1.5 rounded-full bg-boutique-terracotta"></span>
+              <span>Miễn phí viết tay thiệp chúc mừng theo nội dung bạn yêu cầu</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="w-1.5 h-1.5 rounded-full bg-boutique-terracotta"></span>
+              <span>Miễn phí vận chuyển toàn quốc (Freeship)</span>
+            </div>
+          </div>
+
+          <!-- Giá & Nút Chốt Combo -->
+          <div class="pt-6 border-t border-boutique-sand flex flex-col sm:flex-row sm:items-center gap-6">
+            <div>
+              <p class="text-[11px] text-boutique-mocha uppercase tracking-wider">Giá ưu đãi trọn set quà</p>
+              <div class="flex items-baseline gap-2">
+                <span class="font-luxury text-4xl font-semibold text-boutique-dark">499.000₫</span>
+                <span class="text-xs text-boutique-mocha line-through">597.000₫</span>
+              </div>
+            </div>
+
+            <button onclick="addToCart('Set 3 Hũ The Signature Trio Giftset', 499000, '')" class="bg-boutique-dark hover:bg-boutique-terracotta text-white text-xs uppercase tracking-[0.2em] px-8 py-4 font-medium transition-colors shadow-md">
+              Thêm Set Quà Vào Giỏ
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 9. CẨM NANG ĐỐT NẾN THƠM CHUẨN BOUTIQUE (CANDLE CARE GUIDE) ==================== -->
+  <section id="care-guide" class="py-20 bg-boutique-bg border-b border-boutique-sand">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <span class="text-[11px] uppercase tracking-[0.3em] text-boutique-terracotta font-medium">Boutique Ritual</span>
+        <h2 class="text-3xl md:text-5xl font-luxury font-normal text-boutique-dark mt-2">Nghệ Thuật Chăm Sóc Nến</h2>
+        <p class="text-xs md:text-sm text-boutique-mocha mt-2 font-light">
+          Để hũ nến luôn tỏa hương thơm thuần khiết và kéo dài tuổi thọ đốt đến giọt sáp cuối cùng.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <div class="bg-white p-6 border border-boutique-sand">
+          <span class="font-luxury text-3xl text-boutique-terracotta">01</span>
+          <h3 class="font-luxury text-lg text-boutique-dark mt-2 font-medium">Cắt Ngắn Bấc Nến</h3>
+          <p class="text-xs text-boutique-mocha font-light mt-2 leading-relaxed">
+            Trước mỗi lần thắp, hãy cắt bấc nến còn khoảng 0.5cm để ngọn lửa cháy êm, không tỏa khói đen và giữ sáp sạch sẽ.
+          </p>
+        </div>
+
+        <div class="bg-white p-6 border border-boutique-sand">
+          <span class="font-luxury text-3xl text-boutique-terracotta">02</span>
+          <h3 class="font-luxury text-lg text-boutique-dark mt-2 font-medium">Đốt Đủ 1 - 2 Tiếng</h3>
+          <p class="text-xs text-boutique-mocha font-light mt-2 leading-relaxed">
+            Ở lần đốt đầu tiên, hãy giữ nến cháy tối thiểu 1 tiếng để lớp sáp bề mặt tan đều tới thành cốc, chống hiện tượng tạo hố (tunneling).
+          </p>
+        </div>
+
+        <div class="bg-white p-6 border border-boutique-sand">
+          <span class="font-luxury text-3xl text-boutique-terracotta">03</span>
+          <h3 class="font-luxury text-lg text-boutique-dark mt-2 font-medium">Đậy Nắp Tắt Lửa</h3>
+          <p class="text-xs text-boutique-mocha font-light mt-2 leading-relaxed">
+            Tránh thổi trực tiếp làm bay tàn bấc vào sáp. Hãy dùng chuông dập hoặc đậy nắp hũ lại để ngọn lửa tự tắt nhẹ nhàng.
+          </p>
+        </div>
+
+        <div class="bg-white p-6 border border-boutique-sand">
+          <span class="font-luxury text-3xl text-boutique-terracotta">04</span>
+          <h3 class="font-luxury text-lg text-boutique-dark mt-2 font-medium">Bảo Quản Hổ Phách</h3>
+          <p class="text-xs text-boutique-mocha font-light mt-2 leading-relaxed">
+            Đậy kín nắp khi sáp đã nguội và để nơi thoáng mát. Hũ thủy tinh hổ phách sẽ bảo quản trọn vẹn tinh dầu khỏi ánh sáng.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 10. CÂU CHUYỆN THƯƠNG HIỆU (BRAND STORY & SUSTAINABILITY) ==================== -->
+  <section id="philosophy" class="py-20 max-w-4xl mx-auto px-6 text-center">
+    <span class="text-[11px] uppercase tracking-[0.3em] text-boutique-mocha font-medium">Touchie Vietnam Philosophy</span>
+    <h2 class="text-3xl md:text-5xl font-luxury font-light text-boutique-dark mt-2 mb-6">
+      "Mỗi ngọn lửa thắp lên là một lời chào bình yên"
+    </h2>
+    <p class="text-sm md:text-base text-boutique-mocha font-light leading-relaxed max-w-3xl mx-auto">
+      Touchie Vietnam ra đời với mong muốn mang lại những giây phút chậm rãi giữa nhịp sống hối hả. Chúng tôi kiên định sử dụng 100% sáp cọ và sáp đậu nành thiên nhiên, loại bỏ hoàn toàn hóa chất công nghiệp, để mỗi hơi thở trong căn phòng bạn đều là sự thuần khiết vỗ về giác quan.
+    </p>
+
+    <!-- Social Proof Reviews -->
+    <div class="mt-14 pt-12 border-t border-boutique-sand grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
+      <div class="bg-white p-6 border border-boutique-sand shadow-sm">
+        <div class="flex items-center text-boutique-amber text-xs gap-1 mb-2">★★★★★</div>
+        <p class="text-xs text-boutique-espresso font-light italic leading-relaxed">
+          "Hũ Warm Orange thơm cực kỳ sang và ấm cúng, không hề bị nồng gắt hóa chất như nến thông thường. Vỏ hũ hổ phách để decor góc làm việc cũng rất có gu!"
+        </p>
+        <p class="text-[11px] font-medium text-boutique-dark mt-3">— Chị Mai Phương (TP. HCM)</p>
+      </div>
+
+      <div class="bg-white p-6 border border-boutique-sand shadow-sm">
+        <div class="flex items-center text-boutique-amber text-xs gap-1 mb-2">★★★★★</div>
+        <p class="text-xs text-boutique-espresso font-light italic leading-relaxed">
+          "Mình đặt set 3 hũ tặng tân gia bạn thân, shop đóng gói hộp cứng kèm nơ và thiệp viết tay cực kỳ chỉn chu. Bạn mình khen nức nở mùi Creamy Butter!"
+        </p>
+        <p class="text-[11px] font-medium text-boutique-dark mt-3">— Anh Hoàng Long (Hà Nội)</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 11. SLIDE-OVER CART DRAWER & ONE-STEP CHECKOUT ==================== -->
+  <div id="cart-drawer" class="fixed inset-0 z-50 overflow-hidden hidden" role="dialog" aria-modal="true" aria-labelledby="cart-title">
+    <!-- Backdrop -->
+    <div onclick="closeDrawer()" class="absolute inset-0 bg-black/50 backdrop-blur-sm transition-opacity"></div>
+
+    <div class="fixed inset-y-0 right-0 max-w-md w-full bg-white shadow-boutique-drawer flex flex-col justify-between border-l border-boutique-sand z-10">
+      
+      <!-- Drawer Header -->
+      <div class="p-6 border-b border-boutique-sand flex items-center justify-between bg-boutique-bg">
+        <div class="flex items-center gap-3">
+          <img src="src/assets/images/touchie-logo-dark.png" alt="Touchie Vietnam" class="h-8 w-auto object-contain">
+          <div class="border-l border-boutique-sand pl-3">
+            <h3 id="cart-title" class="font-luxury text-xl text-boutique-dark font-medium">Giỏ Hàng Của Bạn</h3>
+            <p class="text-[10px] text-boutique-mocha uppercase tracking-wider">Touchie Vietnam Boutique</p>
+          </div>
+        </div>
+        <button onclick="closeDrawer()" aria-label="Đóng giỏ hàng" class="text-boutique-mocha hover:text-boutique-dark text-2xl p-2">&times;</button>
+      </div>
+
+      <!-- Free Shipping Progress Bar -->
+      <div class="px-6 py-3 bg-boutique-sand/50 border-b border-boutique-sand text-xs">
+        <div class="flex items-center justify-between text-[11px] text-boutique-espresso font-light mb-1.5">
+          <span id="shipping-progress-text">Thêm 499.000₫ để nhận <b>Freeship toàn quốc</b></span>
+          <span id="shipping-badge" class="font-semibold text-boutique-terracotta">Chưa đạt</span>
+        </div>
+        <div class="w-full bg-boutique-sand h-1.5 rounded-full overflow-hidden">
+          <div id="shipping-progress-bar" class="bg-boutique-terracotta h-full w-0 transition-all duration-500"></div>
+        </div>
+      </div>
+
+      <!-- Drawer Body: Danh sách món & Form đặt hàng -->
+      <div class="p-6 overflow-y-auto flex-1 space-y-6">
+        
+        <!-- Cart Items Container -->
+        <div id="cart-items" class="space-y-4">
+          <!-- Dynamic Cart Items via JS -->
+        </div>
+
+        <!-- Combo Pack Quick Selector -->
+        <div class="bg-boutique-bg p-4 border border-boutique-sand space-y-2">
+          <p class="text-[11px] uppercase tracking-wider font-semibold text-boutique-dark">Gói Ưu Đãi Phổ Biến:</p>
+          <div class="grid grid-cols-2 gap-2 text-xs">
+            <button onclick="addBundle(2)" class="p-2 border border-boutique-sand bg-white hover:border-boutique-terracotta text-left">
+              <span class="block font-medium text-boutique-dark">Combo 2 Hũ</span>
+              <span class="block text-[11px] text-boutique-terracotta font-semibold">359.000₫ (-39k)</span>
+            </button>
+            <button onclick="addBundle(3)" class="p-2 border border-boutique-terracotta bg-boutique-terracotta/5 hover:bg-boutique-terracotta/10 text-left">
+              <span class="block font-medium text-boutique-dark">Set 3 Hũ + Hộp Quà</span>
+              <span class="block text-[11px] text-boutique-terracotta font-semibold">499.000₫ (Freeship)</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Form Thông tin Giao hàng Nhanh -->
+        <div class="border-t border-boutique-sand pt-5 space-y-3">
+          <p class="text-xs uppercase tracking-widest font-semibold text-boutique-dark">Thông tin giao hàng nhanh</p>
+          
+          <input type="text" id="order-name" required placeholder="Họ và tên người nhận *" class="w-full border border-boutique-sand p-3 text-xs bg-boutique-bg focus:outline-none focus:border-boutique-dark">
+          <input type="tel" id="order-phone" required placeholder="Số điện thoại nhận hàng *" class="w-full border border-boutique-sand p-3 text-xs bg-boutique-bg focus:outline-none focus:border-boutique-dark">
+          <input type="text" id="order-address" required placeholder="Địa chỉ giao hàng chi tiết (Số nhà, đường, phường, quận/huyện) *" class="w-full border border-boutique-sand p-3 text-xs bg-boutique-bg focus:outline-none focus:border-boutique-dark">
+          <textarea id="order-note" rows="2" placeholder="Nội dung viết thiệp quà tặng (hoặc dặn dò giao hàng)..." class="w-full border border-boutique-sand p-3 text-xs bg-boutique-bg focus:outline-none focus:border-boutique-dark"></textarea>
+
+          <div class="space-y-2 pt-2">
+            <label class="flex items-center gap-2.5 text-xs text-boutique-dark cursor-pointer p-2 border border-boutique-sand hover:bg-boutique-sand/20">
+              <input type="radio" name="pay-method" value="vietqr" checked class="accent-boutique-terracotta">
+              <span>Chuyển khoản VietQR (Tự động sinh mã chính xác)</span>
+            </label>
+            <label class="flex items-center gap-2.5 text-xs text-boutique-dark cursor-pointer p-2 border border-boutique-sand hover:bg-boutique-sand/20">
+              <input type="radio" name="pay-method" value="cod" class="accent-boutique-terracotta">
+              <span>Thanh toán khi nhận hàng (COD tận nhà)</span>
+            </label>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Drawer Footer: Tổng tiền & Nút chốt -->
+      <div class="p-6 border-t border-boutique-sand bg-boutique-bg space-y-3">
+        <div class="flex items-center justify-between text-sm">
+          <span class="text-boutique-mocha font-light">Tổng thanh toán:</span>
+          <span id="cart-total" class="font-luxury text-2xl font-bold text-boutique-dark">0₫</span>
+        </div>
+        <button onclick="submitOrder()" class="w-full bg-boutique-dark hover:bg-boutique-terracotta text-white py-4 text-xs uppercase tracking-[0.2em] font-medium transition-colors shadow-md">
+          Xác Nhận Đặt Hàng Ngay
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ==================== 12. QUICK VIEW MODAL (XEM CHI TIẾT SẢN PHẨM) ==================== -->
+  <div id="quickview-modal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden flex items-center justify-center p-4" role="dialog" aria-modal="true">
+    <div class="bg-white max-w-2xl w-full border border-boutique-sand shadow-2xl relative overflow-hidden">
+      <button onclick="closeQuickView()" class="absolute top-4 right-4 text-boutique-mocha hover:text-boutique-dark text-2xl z-10">&times;</button>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2">
+        <div class="bg-boutique-bg p-8 flex items-center justify-center border-b md:border-b-0 md:border-r border-boutique-sand">
+          <img id="qv-img" src="src/assets/images/warm-orange-mockup.png" alt="Product Quick View" class="max-h-64 object-contain">
+        </div>
+
+        <div class="p-8 space-y-4">
+          <span id="qv-badge" class="text-[10px] uppercase tracking-widest text-boutique-terracotta font-medium">Signature Scent</span>
+          <h3 id="qv-title" class="font-luxury text-3xl text-boutique-dark font-medium">Warm Orange</h3>
+          <p id="qv-price" class="text-xl font-semibold text-boutique-dark">199.000₫</p>
+          <p id="qv-desc" class="text-xs text-boutique-mocha leading-relaxed font-light">
+            Cam chín mọng hòa quyện nhựa thông Siberi và hổ phách ấm nồng. 100% sáp cọ tự nhiên.
+          </p>
+
+          <div class="py-2 border-y border-boutique-sand text-xs space-y-1.5 text-boutique-espresso">
+            <p>✦ Dung tích: <b>100gr (Hũ thủy tinh hổ phách)</b></p>
+            <p>✦ Thời gian cháy: <b>15 giờ liên tục</b></p>
+            <p>✦ Diện tích phòng: <b>20 - 30m²</b></p>
+          </div>
+
+          <button id="qv-btn-add" onclick="" class="w-full bg-boutique-dark hover:bg-boutique-terracotta text-white py-3.5 text-xs uppercase tracking-widest font-medium transition-colors">
+            Thêm Vào Giỏ Hàng
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== 13. POPUP QUÉT MÃ VIETQR HOÀN TẤT ĐƠN HÀNG ==================== -->
+  <div id="qr-popup" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden flex items-center justify-center p-4">
+    <div class="bg-white max-w-sm w-full p-8 border border-boutique-sand shadow-2xl text-center space-y-4">
+      <span class="text-3xl block text-boutique-terracotta">✦</span>
+      <h3 class="font-luxury text-3xl text-boutique-dark font-medium">Đặt Hàng Thành Công!</h3>
+      <p class="text-xs text-boutique-mocha">Mã đơn hàng: <span id="popup-order-id" class="font-bold text-boutique-dark">TC2026</span></p>
+
+      <div id="popup-qr-box" class="bg-boutique-bg p-4 border border-boutique-sand">
+        <p class="text-[11px] text-boutique-mocha mb-2">Mở app ngân hàng quét mã thanh toán:</p>
+        <img id="popup-qr-img" src="" alt="Mã VietQR" class="w-48 h-48 mx-auto shadow-sm border border-white">
+        <p id="popup-amount" class="text-base font-bold text-boutique-terracotta mt-2 font-luxury text-2xl">499.000₫</p>
+      </div>
+
+      <p class="text-[11px] text-boutique-mocha font-light">Chuyên viên tư vấn Touchie Vietnam sẽ liên hệ xác nhận đơn hàng với bạn trong ít phút.</p>
+
+      <button onclick="closeQrPopup()" class="w-full bg-boutique-dark hover:bg-boutique-terracotta text-white text-xs uppercase tracking-widest py-3.5 transition-colors font-medium">
+        Đã Hoàn Tất & Xác Nhận
+      </button>
+    </div>
+  </div>
+
+  <!-- ==================== 14. BOUTIQUE FOOTER (THE CANDLEHOLIC STYLE) ==================== -->
+  <footer class="bg-boutique-dark text-white/80 py-16 px-6 border-t border-boutique-dark">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10 text-xs font-light">
+      
+      <div class="space-y-4">
+        <a href="#" class="inline-block py-1">
+          <img src="src/assets/images/touchie-logo-light.png" alt="Touchie Vietnam" class="h-11 w-auto object-contain">
+        </a>
+        <p class="text-white/60 leading-relaxed">
+          Thương hiệu nến thơm thực vật & giải pháp quà tặng khứu giác cao cấp. Tự hào sản xuất thủ công tại Việt Nam từ 100% sáp thiên nhiên an toàn tuyệt đối.
+        </p>
+        <div class="pt-2 flex items-center gap-3 text-white/70">
+          <span class="text-xs">✦ Sáp Cọ Tự Nhiên</span>
+          <span class="text-xs">✦ Chuẩn IFRA</span>
+        </div>
+      </div>
+
+      <!-- Cột 2: Danh mục sản phẩm -->
+      <div class="space-y-3">
+        <h4 class="text-xs uppercase tracking-widest text-white font-medium">Danh mục sản phẩm</h4>
+        <ul class="space-y-2 text-white/60">
+          <li><a href="#collections" class="hover:text-white transition-colors">Nến thơm Warm Orange 100gr</a></li>
+          <li><a href="#collections" class="hover:text-white transition-colors">Nến thơm Creamy Butter 100gr</a></li>
+          <li><a href="#collections" class="hover:text-white transition-colors">Nến thơm Orchid Veil 100gr</a></li>
+          <li><a href="#giftsets" class="hover:text-white transition-colors">The Signature Trio Giftset</a></li>
+          <li><a href="#care-guide" class="hover:text-white transition-colors">Phụ kiện & Hướng dẫn đốt nến</a></li>
+        </ul>
+      </div>
+
+      <!-- Cột 3: Cam kết & Chính sách -->
+      <div class="space-y-3">
+        <h4 class="text-xs uppercase tracking-widest text-white font-medium">Chính sách mua hàng</h4>
+        <ul class="space-y-2 text-white/60">
+          <li><a href="#" class="hover:text-white transition-colors">Đổi mới 100% nếu nứt vỡ khi vận chuyển</a></li>
+          <li><a href="#" class="hover:text-white transition-colors">Miễn phí vận chuyển cho đơn từ 499k</a></li>
+          <li><a href="#" class="hover:text-white transition-colors">Tặng thiệp viết tay theo yêu cầu</a></li>
+          <li><a href="#" class="hover:text-white transition-colors">Chính sách bảo mật thông tin</a></li>
+        </ul>
+      </div>
+
+      <!-- Cột 4: Hotline & Xưởng thủ công -->
+      <div class="space-y-3">
+        <h4 class="text-xs uppercase tracking-widest text-white font-medium">Liên hệ chúng tôi</h4>
+        <p class="text-white/60">Xưởng thủ công: TP. Hồ Chí Minh & Hà Nội, Việt Nam</p>
+        <p class="text-white/60">Hotline / Zalo: <span class="text-white font-medium">0912 345 678</span></p>
+        <p class="text-white/60">Email: boutique@touchievietnam.com</p>
+        <p class="text-white/60">Giờ hoạt động: 08:30 - 21:30 hàng ngày</p>
+      </div>
+
+    </div>
+
+    <div class="max-w-7xl mx-auto mt-12 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between text-white/40 text-[11px] gap-4">
+      <p>Copyright &copy; 2026 Touchie Vietnam Boutique. All rights reserved.</p>
+      <p>Artisanal Botanical Candles Handcrafted in Vietnam.</p>
+    </div>
+  </footer>
+
+  <!-- ==================== JAVASCRIPT LOGIC (CART, CHECKOUT & MOOD MATCHER) ==================== -->
+  <script>
+    // State giỏ hàng
+    let cart = [];
+
+    // Danh mục dữ liệu QuickView
+    const productData = {
+      'warm-orange': {
+        title: 'Warm Orange (100gr)',
+        badge: 'Bestseller',
+        price: 199000,
+        desc: 'Hương cam vàng mọng nước chín đượm, hòa quyện hương thông Siberi thanh mát và hổ phách ấm nồng. Thích hợp xua tan áp lực và làm mới không gian.',
+        img: 'src/assets/images/warm-orange.png'
+      },
+      'creamy-butter': {
+        title: 'Creamy Butter (100gr)',
+        badge: 'Gourmand Sweet',
+        price: 199000,
+        desc: 'Vị béo ngậy ngọt dịu của bơ hạt mỡ kết hợp vani Madagascar và hạnh nhân nướng. Êm ái, ấm cúng và vỗ về cảm xúc như bước vào tiệm bánh.',
+        img: 'src/assets/images/creamy-butter.png'
+      },
+      'orchid-veil': {
+        title: 'Orchid Veil (100gr)',
+        badge: 'Floral & Sandalwood',
+        price: 199000,
+        desc: 'Hương phong lan dại thanh khiết, quả lê tươi mọng kết hợp gỗ đàn hương Mysore trầm lắng. Tinh tế, thanh lọc tâm trí và thích hợp cho góc thiền/làm việc.',
+        img: 'src/assets/images/orchid-veil.png'
+      }
+    };
+
+    // Toggle Mobile Navigation
+    function toggleMobileNav() {
+      const drawer = document.getElementById('mobile-nav-drawer');
+      drawer.classList.toggle('hidden');
+    }
+
+    // Toggle Drawer Giỏ hàng
+    function openDrawer() {
+      document.getElementById('cart-drawer').classList.remove('hidden');
+    }
+
+    function closeDrawer() {
+      document.getElementById('cart-drawer').classList.add('hidden');
+    }
+
+    // Thêm sản phẩm vào giỏ
+    function addToCart(name, price, img) {
+      const existing = cart.find(i => i.name === name);
+      if (existing) {
+        existing.qty += 1;
+      } else {
+        cart.push({ name, price, qty: 1, img: img || '' });
+      }
+      renderCart();
+      openDrawer();
+    }
+
+    // Thay đổi số lượng sản phẩm (+ / -)
+    function changeQty(index, delta) {
+      if (!cart[index]) return;
+      cart[index].qty += delta;
+      if (cart[index].qty <= 0) {
+        cart.splice(index, 1);
+      }
+      renderCart();
+    }
+
+    // Xóa khỏi giỏ
+    function removeFromCart(index) {
+      cart.splice(index, 1);
+      renderCart();
+    }
+
+    // Thêm combo nhanh từ drawer
+    function addBundle(type) {
+      if (type === 2) {
+        addToCart('Combo 2 Hũ Nến Tự Chọn (Tiết kiệm 39k)', 359000, '');
+      } else if (type === 3) {
+        addToCart('Set 3 Hũ The Signature Trio Giftset', 499000, '');
+      }
+    }
+
+    // Render giao diện giỏ hàng
+    function renderCart() {
+      const badgeEl = document.getElementById('cart-count-badge');
+      const itemsEl = document.getElementById('cart-items');
+      const totalEl = document.getElementById('cart-total');
+      const progressBar = document.getElementById('shipping-progress-bar');
+      const progressText = document.getElementById('shipping-progress-text');
+      const shippingBadge = document.getElementById('shipping-badge');
+
+      const totalQty = cart.reduce((sum, item) => sum + item.qty, 0);
+      badgeEl.textContent = totalQty;
+
+      if (cart.length === 0) {
+        itemsEl.innerHTML = `
+          <div class="text-center py-10 space-y-3">
+            <span class="text-3xl block">🕯️</span>
+            <p class="text-xs text-boutique-mocha">Giỏ hàng của bạn đang trống.</p>
+            <a href="#collections" onclick="closeDrawer()" class="inline-block text-[11px] uppercase tracking-wider text-boutique-terracotta underline font-medium">Khám phá các mùi hương &rarr;</a>
+          </div>
+        `;
+        totalEl.textContent = '0₫';
+        progressBar.style.width = '0%';
+        progressText.innerHTML = 'Thêm 499.000₫ để nhận <b>Freeship toàn quốc</b>';
+        shippingBadge.textContent = 'Chưa đạt';
+        shippingBadge.className = 'font-semibold text-boutique-terracotta';
+        return;
+      }
+
+      let total = 0;
+      itemsEl.innerHTML = cart.map((item, idx) => {
+        const itemTotal = item.price * item.qty;
+        total += itemTotal;
+        return `
+          <div class="flex items-center justify-between gap-3 pb-3 border-b border-boutique-sand text-xs">
+            <div class="w-12 h-12 bg-boutique-sand/40 border border-boutique-sand flex-shrink-0 overflow-hidden flex items-center justify-center">
+              ${item.img ? `<img src="${item.img}" alt="${item.name}" class="w-full h-full object-cover">` : '<span class="text-lg">🕯️</span>'}
+            </div>
+            <div class="flex-1 min-w-0">
+              <p class="font-medium text-boutique-dark truncate">${item.name}</p>
+              <p class="text-boutique-mocha text-[11px] mt-0.5">${item.price.toLocaleString('vi-VN')}₫</p>
+              
+              <!-- Nút điều chỉnh số lượng -->
+              <div class="flex items-center gap-2 mt-1.5">
+                <button onclick="changeQty(${idx}, -1)" class="w-5 h-5 rounded border border-boutique-sand bg-white text-boutique-dark flex items-center justify-center hover:bg-boutique-sand text-[11px]">-</button>
+                <span class="font-medium text-xs px-1">${item.qty}</span>
+                <button onclick="changeQty(${idx}, 1)" class="w-5 h-5 rounded border border-boutique-sand bg-white text-boutique-dark flex items-center justify-center hover:bg-boutique-sand text-[11px]">+</button>
+              </div>
+            </div>
+
+            <div class="text-right flex flex-col items-end gap-1">
+              <span class="font-semibold text-boutique-dark">${itemTotal.toLocaleString('vi-VN')}₫</span>
+              <button onclick="removeFromCart(${idx})" class="text-boutique-mocha hover:text-red-600 text-sm p-1" title="Xóa món này">&times;</button>
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      totalEl.textContent = total.toLocaleString('vi-VN') + '₫';
+
+      // Tính toán thanh tiến trình Freeship (Mốc 499.000đ)
+      const freeshipTarget = 499000;
+      const progressPercent = Math.min(100, Math.round((total / freeshipTarget) * 100));
+      progressBar.style.width = `${progressPercent}%`;
+
+      if (total >= freeshipTarget) {
+        progressText.innerHTML = '🎉 Bạn đã đủ điều kiện <b>Miễn phí vận chuyển toàn quốc!</b>';
+        shippingBadge.textContent = 'Đã đạt Freeship';
+        shippingBadge.className = 'font-semibold text-green-700';
+      } else {
+        const remaining = freeshipTarget - total;
+        progressText.innerHTML = `Thêm <b>${remaining.toLocaleString('vi-VN')}₫</b> để nhận <b>Freeship toàn quốc</b>`;
+        shippingBadge.textContent = 'Còn thiếu';
+        shippingBadge.className = 'font-semibold text-boutique-terracotta';
+      }
+    }
+
+    // Modal Quick View
+    function openQuickView(slug) {
+      const data = productData[slug];
+      if (!data) return;
+
+      document.getElementById('qv-title').textContent = data.title;
+      document.getElementById('qv-badge').textContent = data.badge;
+      document.getElementById('qv-price').textContent = data.price.toLocaleString('vi-VN') + '₫';
+      document.getElementById('qv-desc').textContent = data.desc;
+      document.getElementById('qv-img').src = data.img;
+
+      const btnAdd = document.getElementById('qv-btn-add');
+      btnAdd.onclick = function() {
+        addToCart(data.title, data.price, data.img);
+        closeQuickView();
+      };
+
+      document.getElementById('quickview-modal').classList.remove('hidden');
+    }
+
+    function closeQuickView() {
+      document.getElementById('quickview-modal').classList.add('hidden');
+    }
+
+    // Interactive Mood Matcher
+    let selectedMoodProduct = null;
+
+    function selectMood(type) {
+      document.querySelectorAll('.mood-card').forEach(card => card.classList.remove('ring-2', 'ring-boutique-terracotta', 'bg-boutique-sand/20'));
+      
+      const resultBox = document.getElementById('mood-result-box');
+      const icon = document.getElementById('mood-res-icon');
+      const title = document.getElementById('mood-res-title');
+      const desc = document.getElementById('mood-res-desc');
+      const price = document.getElementById('mood-res-price');
+
+      if (type === 'warm-orange') {
+        document.getElementById('mood-card-1').classList.add('ring-2', 'ring-boutique-terracotta', 'bg-boutique-sand/20');
+        icon.textContent = '🍊';
+        title.textContent = 'Nến Thơm Warm Orange (100gr)';
+        desc.textContent = 'Cam vàng ngọt mọng kết hợp gỗ thông và hổ phách — tiếp thêm nguồn năng lượng tích cực và ấm áp cho ngày mới.';
+        price.textContent = '199.000₫';
+        selectedMoodProduct = { name: 'Warm Orange (100gr)', price: 199000, img: 'src/assets/images/warm-orange.png' };
+      } else if (type === 'creamy-butter') {
+        document.getElementById('mood-card-2').classList.add('ring-2', 'ring-boutique-terracotta', 'bg-boutique-sand/20');
+        icon.textContent = '🧁';
+        title.textContent = 'Nến Thơm Creamy Butter (100gr)';
+        desc.textContent = 'Vani béo mịn và bánh nướng tươi — ôm ấp vỗ về tâm trí, đưa bạn vào giấc ngủ êm đềm như một cái ôm ấm.';
+        price.textContent = '199.000₫';
+        selectedMoodProduct = { name: 'Creamy Butter (100gr)', price: 199000, img: 'src/assets/images/creamy-butter.png' };
+      } else if (type === 'orchid-veil') {
+        document.getElementById('mood-card-3').classList.add('ring-2', 'ring-boutique-terracotta', 'bg-boutique-sand/20');
+        icon.textContent = '🪻';
+        title.textContent = 'Nến Thơm Orchid Veil (100gr)';
+        desc.textContent = 'Hoa lan tím đan xen gỗ đàn hương Mysore sâu lắng — tạo không gian tĩnh tại thuần khiết để làm việc sâu hoặc thư giãn.';
+        price.textContent = '199.000₫';
+        selectedMoodProduct = { name: 'Orchid Veil (100gr)', price: 199000, img: 'src/assets/images/orchid-veil.png' };
+      }
+
+      resultBox.classList.remove('hidden');
+    }
+
+    function addSelectedMoodToCart() {
+      if (selectedMoodProduct) {
+        addToCart(selectedMoodProduct.name, selectedMoodProduct.price, selectedMoodProduct.img);
+      }
+    }
+
+    function scrollToScentMatcher() {
+      document.getElementById('scent-matcher').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Submit Đơn hàng & Sinh VietQR
+    function submitOrder() {
+      if (cart.length === 0) {
+        alert('Vui lòng chọn ít nhất 1 sản phẩm vào giỏ!');
+        return;
+      }
+      const name = document.getElementById('order-name').value.trim();
+      const phone = document.getElementById('order-phone').value.trim();
+      const address = document.getElementById('order-address').value.trim();
+
+      if (!name || !phone || !address) {
+        alert('Vui lòng điền đầy đủ Họ tên, Số điện thoại và Địa chỉ giao hàng.');
+        return;
+      }
+
+      const totalAmount = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+      const payMethod = document.querySelector('input[name="pay-method"]:checked').value;
+      const orderId = 'TC' + Math.floor(1000 + Math.random() * 9000);
+
+      document.getElementById('popup-order-id').textContent = orderId;
+      document.getElementById('popup-amount').textContent = totalAmount.toLocaleString('vi-VN') + '₫';
+
+      if (payMethod === 'vietqr') {
+        const bankId = 'MB';
+        const accountNo = '0912345678';
+        const desc = encodeURIComponent(`TOUCHIE ${orderId} ${phone}`);
+        const qrUrl = `https://img.vietqr.io/image/${bankId}-${accountNo}-compact.png?amount=${totalAmount}&addInfo=${desc}&accountName=TOUCHIE%20VIETNAM`;
+        
+        document.getElementById('popup-qr-img').src = qrUrl;
+        document.getElementById('popup-qr-box').style.display = 'block';
+      } else {
+        document.getElementById('popup-qr-box').style.display = 'none';
+      }
+
+      closeDrawer();
+      document.getElementById('qr-popup').classList.remove('hidden');
+    }
+
+    function closeQrPopup() {
+      document.getElementById('qr-popup').classList.add('hidden');
+      cart = [];
+      renderCart();
+      alert('Cảm ơn bạn đã tin tưởng lựa chọn Touchie Vietnam Boutique! Chúng tôi sẽ liên hệ trong ít phút.');
+    }
+
+    // Khởi tạo
+    renderCart();
+  </script>
+
+</body>
+</html>
