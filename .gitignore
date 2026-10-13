@@ -9,3 +9,7 @@ dist/
 # OS & Temp
 .DS_Store
 Thumbs.db
+
+node-website-scraper/
+cloudflared.exe
+
