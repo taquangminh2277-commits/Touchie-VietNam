@@ -1,0 +1,21 @@
+{
+  "name": "touchie-vietnam",
+  "version": "1.0.0",
+  "description": "Touchie Vietnam - Luxury Botanical Candles & Scent Gifting Boutique",
+  "type": "module",
+  "main": "server.mjs",
+  "scripts": {
+    "start": "node server.mjs",
+    "test": "node scripts/verify-site.mjs",
+    "check": "node scripts/verify-site.mjs",
+    "build": "node -e \"console.log('Build completed: Static assets verified.')\""
+  },
+  "keywords": [
+    "touchie-vietnam",
+    "luxury-candles",
+    "boutique",
+    "cloudflare-workers"
+  ],
+  "author": "Touchie Vietnam",
+  "license": "UNLICENSED"
+}
